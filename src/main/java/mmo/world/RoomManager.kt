@@ -11,11 +11,11 @@ class RoomManager {
 
     fun addRoom(name: String): Room? {
         if (this.rooms!!.containsKey(name)) {
-            val room = Room(name);
+            val room = Room(name)
             this.rooms!![name] = room
             return room
         }
-        return null;
+        return null
     }
 
     fun removeRoom(room: Room): RoomCode {
@@ -27,7 +27,7 @@ class RoomManager {
         if (this.rooms!!.containsKey(room.name)) {
             return room.addUser(user)
         }
-        return RoomCode.NotExists;
+        return RoomCode.NotExists
     }
 
     companion object {

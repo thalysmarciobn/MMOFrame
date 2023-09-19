@@ -10,7 +10,7 @@ class Room(@JvmField var name: String) {
     private var users: ConcurrentHashMap<ChannelId, Session> = ConcurrentHashMap()
 
     fun setMax(max: Int) {
-        this.max = max;
+        this.max = max
     }
 
     fun addUser(session: Session): RoomCode {
@@ -20,8 +20,8 @@ class Room(@JvmField var name: String) {
         if (max != -1 && this.users.count() >= this.max)
             return RoomCode.Full
 
-        this.users.put(session.id(), session) ?: return RoomCode.Fail
+        users.put(session.id(), session) ?: return RoomCode.Fail
 
-        return RoomCode.Ok;
+        return RoomCode.Ok
     }
 }
