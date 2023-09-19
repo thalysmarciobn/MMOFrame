@@ -1,8 +1,8 @@
 package mmo.world
 
 enum class RoomCode {
-    Exists,
     NotExists,
+    ContainsUser,
     Full,
     Fail,
     Ok

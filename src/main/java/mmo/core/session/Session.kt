@@ -1,5 +1,6 @@
 package mmo.core.session
 
+import io.netty.channel.ChannelId
 import mmo.core.netty.ChannelAdapter
 
 interface Session {
@@ -19,6 +20,11 @@ interface Session {
      * Call when connection is down
      */
     fun inactive()
+
+    /**
+     * Return channelId
+     */
+    fun id(): ChannelId
 
     /**
      * Return IO channel

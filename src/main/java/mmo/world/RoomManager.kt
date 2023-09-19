@@ -1,5 +1,6 @@
 package mmo.world
 
+import mmo.core.session.Session
 import org.apache.logging.log4j.LogManager
 import java.util.concurrent.ConcurrentHashMap
 
@@ -8,20 +9,25 @@ class RoomManager {
 
     private val logger = LogManager.getLogger(javaClass)
 
-    fun addRoom(name: String): RoomCode {
-        return if (rooms!!.containsKey(name)) RoomCode.Exists else try {
-            val room = Room(name)
-            rooms!![name] = room
-            logger.info("new room: {}", name)
-            RoomCode.Ok
-        } catch (ex: Exception) {
-            RoomCode.Fail
+    fun addRoom(name: String): Room? {
+        if (this.rooms!!.containsKey(name)) {
+            val room = Room(name);
+            this.rooms!![name] = room
+            return room
         }
+        return null;
     }
 
     fun removeRoom(room: Room): RoomCode {
-        if (!rooms!!.containsKey(room.name)) return RoomCode.NotExists
-        return if (rooms!!.remove(room.name, room)) RoomCode.Ok else RoomCode.Fail
+        if (!this.rooms!!.containsKey(room.name)) return RoomCode.NotExists
+        return if (this.rooms!!.remove(room.name, room)) RoomCode.Ok else RoomCode.Fail
+    }
+
+    fun addUserToRoom(room: Room, user: Session): RoomCode {
+        if (this.rooms!!.containsKey(room.name)) {
+            return room.addUser(user)
+        }
+        return RoomCode.NotExists;
     }
 
     companion object {

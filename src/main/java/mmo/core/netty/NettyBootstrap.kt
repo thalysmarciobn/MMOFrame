@@ -45,15 +45,15 @@ class NettyBootstrap<S : Session?>(private val factory: SessionFactory<S>, priva
                                 .addLast(SessionHandlerAdapter(factory).also { sessionHandlerAdapter = it })
                     }
                 })
-        bootstrap.bind(port).also { channel = it.channel() }
+        bootstrap.bind(port).also { this.channel = it.channel() }
     }
 
     override fun shutdown() {
-        eventLoopGroup!!.shutdownGracefully()
-        channel!!.closeFuture()
+        this.eventLoopGroup!!.shutdownGracefully()
+        this.channel!!.closeFuture()
     }
 
     override fun sessions(): Collection<S> {
-        return sessionHandlerAdapter!!.sessions()
+        return this.sessionHandlerAdapter!!.sessions()
     }
 }

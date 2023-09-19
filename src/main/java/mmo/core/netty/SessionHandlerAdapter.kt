@@ -12,7 +12,7 @@ import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.ConcurrentMap
 
 @Sharable
-class SessionHandlerAdapter<S : Session?>(private val factory: SessionFactory<S>) :  SimpleChannelInboundHandler<Any?>() {
+class SessionHandlerAdapter<S : Session?>(private val factory: SessionFactory<S>) : SimpleChannelInboundHandler<Any?>() {
     private val sessionAttribute = AttributeKey.valueOf<S>("session")
     private val sessions: ConcurrentMap<ChannelId, S> = ConcurrentHashMap()
     private val logger = LogManager.getLogger(javaClass)
@@ -22,18 +22,18 @@ class SessionHandlerAdapter<S : Session?>(private val factory: SessionFactory<S>
 
     @Throws(Exception::class)
     override fun channelRegistered(ctx: ChannelHandlerContext) {
-        val session = factory.create(ChannelAdapter(ctx))
-        logger.info("new connection from address: {}", session!!.channel().address())
+        val session = this.factory.create(ChannelAdapter(ctx))
+        this.logger.info("new connection from address: {}", session!!.channel().address())
         ctx
                 .channel()
-                .attr(sessionAttribute)
+                .attr(this.sessionAttribute)
                 .set(session)
-        sessions[ctx.channel().id()] = session
+        this.sessions[ctx.channel().id()] = session
     }
 
     @Throws(Exception::class)
     override fun channelUnregistered(ctx: ChannelHandlerContext) {
-        ctx.channel().attr(sessionAttribute).get()!!.inactive()
+        ctx.channel().attr(this.sessionAttribute).get()!!.inactive()
     }
 
     @Throws(Exception::class)

@@ -7,21 +7,21 @@ import java.net.InetSocketAddress
 
 class ChannelAdapter(private val channel: ChannelHandlerContext) : Channel {
     override fun id(): ChannelId {
-        return channel.channel().id()
+        return this.channel.channel().id()
     }
 
     override fun write(message: Any?) {
-        channel.writeAndFlush(message)
+        this.channel.writeAndFlush(message)
     }
 
     override fun close() {
-        channel.close()
+        this.channel.close()
     }
 
     override val isAlive: Boolean
-        get() = channel.channel().isActive
+        get() = this.channel.channel().isActive
 
     override fun address(): InetSocketAddress {
-        return channel.channel().remoteAddress() as InetSocketAddress
+        return this.channel.channel().remoteAddress() as InetSocketAddress
     }
 }
