@@ -2,7 +2,9 @@
 
 [![CodeFactor](https://www.codefactor.io/repository/github/thalysmarciobn/MMOFrame/badge/main)](https://www.codefactor.io/repository/github/thalysmarciobn/MMOFrame/overview/main)
 
-&nbsp;MMOFrame é um projeto em Kotlin utilizando Netty, com o foco de se tornar uma framework para um servidor MMO, facilitando na criação e gerenciamento do server-side de um jogo MMO, trazendo fácil a leitura e implementação de gerenciamento de salas, lobbys, sessões e usuários
+&nbsp;MMOFrame é um projeto em Kotlin utilizando Netty, com o foco de se tornar uma framework para um servidor MMO,
+facilitando na criação e gerenciamento do server-side de um jogo MMO, trazendo fácil a leitura e implementação de
+gerenciamento de salas, lobbys, sessões e usuários
 
 ## 🛠️ Construído com
 
@@ -11,17 +13,22 @@
 
 ## Netty
 
-&nbsp;Utilizar o Netty em um servidor MMO (Massively Multiplayer Online) oferece inúmeras vantagens significativas. Netty é um framework de rede altamente escalável e eficiente que foi projetado com desempenho, uma escolha sólida para servidores MMO devido à sua eficiência, flexibilidade e escalabilidade, podendo lidar com o tráfego intenso e a comunicação de rede complexa que são essenciais para uma experiência de jogo online suave e envolvente.
+&nbsp;Utilizar o Netty em um servidor MMO (Massively Multiplayer Online) oferece inúmeras vantagens significativas.
+Netty é um framework de rede altamente escalável e eficiente que foi projetado com desempenho, uma escolha sólida para
+servidores MMO devido à sua eficiência, flexibilidade e escalabilidade, podendo lidar com o tráfego intenso e a
+comunicação de rede complexa que são essenciais para uma experiência de jogo online suave e envolvente.
 
 ## Iniciação
 
 **Start**
+
 ```java
-NettyBootstrap bootstrap = new NettyBootstrap(new NetworkFactory(), 10000, Duration.ofSeconds(10));
-bootstrap.build();
+NettyBootstrap bootstrap=new NettyBootstrap(new NetworkFactory(),10000,Duration.ofSeconds(10));
+        bootstrap.build();
 ```
 
 **Factory**
+
 ```java
 public class NetworkFactory implements SessionFactory {
     @Override
@@ -32,6 +39,7 @@ public class NetworkFactory implements SessionFactory {
 ```
 
 **Sessão**
+
 ```java
 public class NetworkSession implements Session {
     private ChannelAdapter channel;

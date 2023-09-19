@@ -1,7 +1,9 @@
 package mmo.network;
 
+import io.netty.channel.ChannelId;
 import mmo.core.netty.ChannelAdapter;
 import mmo.core.session.Session;
+import org.jetbrains.annotations.NotNull;
 
 public class NetworkSession implements Session {
 
@@ -26,6 +28,12 @@ public class NetworkSession implements Session {
 
     @Override
     public ChannelAdapter channel() {
+        return null;
+    }
+
+    @NotNull
+    @Override
+    public ChannelId id() {
         return null;
     }
 }

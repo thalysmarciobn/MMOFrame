@@ -2,7 +2,6 @@ package network;
 
 import io.netty.channel.ChannelId;
 import mmo.core.netty.ChannelAdapter;
-import mmo.core.network.Channel;
 import mmo.core.session.Session;
 import org.jetbrains.annotations.NotNull;
 

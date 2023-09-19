@@ -9,9 +9,9 @@
                      filePattern="logs/$${date:yyyy-MM}/errors-%d{MM-dd-yyyy}-%i.log.gz"
                      append="true"
         >
-            <PatternLayout pattern="${FILE_LOG_PATTERN}" />
+            <PatternLayout pattern="${FILE_LOG_PATTERN}"/>
             <Policies>
-                <TimeBasedTriggeringPolicy />
+                <TimeBasedTriggeringPolicy/>
                 <SizeBasedTriggeringPolicy size="250 MB"/>
             </Policies>
         </RollingFile>
@@ -20,9 +20,9 @@
                      filePattern="logs/$${date:yyyy-MM}/game-%d{MM-dd-yyyy}-%i.log.gz"
                      append="true"
         >
-            <PatternLayout pattern="${FILE_LOG_PATTERN}" />
+            <PatternLayout pattern="${FILE_LOG_PATTERN}"/>
             <Policies>
-                <TimeBasedTriggeringPolicy />
+                <TimeBasedTriggeringPolicy/>
                 <SizeBasedTriggeringPolicy size="250 MB"/>
             </Policies>
 
@@ -36,9 +36,9 @@
                      filePattern="logs/$${date:yyyy-MM}/realm-%d{MM-dd-yyyy}-%i.log.gz"
                      append="true"
         >
-            <PatternLayout pattern="${FILE_LOG_PATTERN}" />
+            <PatternLayout pattern="${FILE_LOG_PATTERN}"/>
             <Policies>
-                <TimeBasedTriggeringPolicy />
+                <TimeBasedTriggeringPolicy/>
                 <SizeBasedTriggeringPolicy size="250 MB"/>
             </Policies>
 
@@ -52,9 +52,9 @@
                      filePattern="logs/$${date:yyyy-MM}/admin-%d{MM-dd-yyyy}-%i.log.gz"
                      append="true"
         >
-            <PatternLayout pattern="${FILE_LOG_PATTERN}" />
+            <PatternLayout pattern="${FILE_LOG_PATTERN}"/>
             <Policies>
-                <TimeBasedTriggeringPolicy />
+                <TimeBasedTriggeringPolicy/>
                 <SizeBasedTriggeringPolicy size="250 MB"/>
             </Policies>
 
@@ -71,7 +71,7 @@
     <Loggers>
         <Root level="INFO">
             <AppenderRef ref="STDOUT" level="TRACE"/>
-            <AppenderRef ref="errors" level="WARN" />
+            <AppenderRef ref="errors" level="WARN"/>
         </Root>
     </Loggers>
 </Configuration>
