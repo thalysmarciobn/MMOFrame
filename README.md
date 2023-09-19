@@ -1,6 +1,7 @@
 # MMOFrame
 
 [![CodeFactor](https://www.codefactor.io/repository/github/thalysmarciobn/MMOFrame/badge/main)](https://www.codefactor.io/repository/github/thalysmarciobn/MMOFrame/overview/main)
+[![Java CI with Maven](https://github.com/thalysmarciobn/MMOFrame/actions/workflows/maven.yml/badge.svg)](https://github.com/thalysmarciobn/MMOFrame/actions/workflows/maven.yml)
 
 &nbsp;MMOFrame é um projeto em Kotlin utilizando Netty, com o foco de se tornar uma framework para um servidor MMO,
 facilitando na criação e gerenciamento do server-side de um jogo MMO, trazendo fácil a leitura e implementação de
